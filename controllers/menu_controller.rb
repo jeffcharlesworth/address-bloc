@@ -14,6 +14,7 @@ class MenuController
         puts "3 - Search for an entry"
         puts "4 - Import entries from a CSV"
         puts "5 - Exit"
+        puts "6 - Delete all entries"
         print "Enter your selection: "
 
         selection = gets.to_i
@@ -39,6 +40,11 @@ class MenuController
         when 5
             puts "Good-bye!"
             exit(0)
+        when 6
+            system "clear"
+            puts "Burning down the house"
+            eviscerate
+            main_menu
         else
             system "clear"
             puts "Sorry, that is not a valid input"
@@ -104,6 +110,11 @@ class MenuController
       else
         puts "No match found for #{name}"
       end
+    end
+
+    def eviscerate
+      address_book.remove_all
+      puts "All entries deleted"
     end
 
     def search_submenu(entry)

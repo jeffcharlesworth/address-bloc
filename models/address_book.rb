@@ -50,4 +50,8 @@ class AddressBook
      return nil
    end
 
+   def remove_all
+     @entries = []
+   end
+
 end
